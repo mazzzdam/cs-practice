@@ -23,7 +23,7 @@ def read_valid(lines: list[str]) -> list[dict]:
         if not line.strip():
             continue
         try:
-            valid.append(parse_record(line))
+            valid.append(parse_record(line)) # если в принципе какое-то из условий не выполнется и расчитать не выходит
         except ValueError:
             pass
     return valid
