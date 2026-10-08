@@ -40,8 +40,7 @@ def average_by_city(records: list[dict]) -> dict:
 
 def warmest_city(records: list[dict]) -> str:
     if not records:
-        return ""
+        return ''
     avgs = average_by_city(records)
-    # сортируем: сначала по убыванию температуры, затем по алфавиту
     sorted_cities = sorted(avgs.keys(), key=lambda c: (-avgs[c], c))
     return sorted_cities[0]
