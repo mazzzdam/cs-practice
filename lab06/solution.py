@@ -17,3 +17,11 @@ def deepest_path(paths: list[str]) -> str:
     return max(sorted_paths, key=lambda p: p.count('/'))
 
 
+def human_size(n_bytes: int) -> str:
+    if n_bytes < 1024:
+        return f"{n_bytes} Б"
+    size = n_bytes / 1024
+    for unit in ["КБ", "МБ", "ГБ", "ТБ"]:
+        if size < 1024 or unit == "ТБ":
+            return f"{size:.1f} {unit}"
+        size /= 1024
