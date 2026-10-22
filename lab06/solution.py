@@ -10,7 +10,6 @@ def count_by_extension(paths: list[str]) -> dict[str, int]:
         counts[ext] = counts.get(ext, 0) + 1
     return counts
 
-
 def deepest_path(paths: list[str]) -> str:
     if not paths:
         return ""
