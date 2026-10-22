@@ -6,6 +6,8 @@ def count_by_extension(paths: list[str]) -> dict[str, int]:
             ext = filename.split('.')[-1].lower()
         else:
             ext = ""
+        else:
+            ext = filename[last_dot + 1:].lower()
         counts[ext] = counts.get(ext, 0) + 1
     return counts
 
