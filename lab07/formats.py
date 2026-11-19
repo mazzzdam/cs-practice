@@ -1,4 +1,5 @@
 import json
+import re
 
 
 def csv_to_records(text: str) -> list[dict]:
@@ -19,14 +20,11 @@ def _parse_value(raw: str):
         return True
     if low in ("false", "no"):
         return False
-    try:
+    if re.fullmatch(r"[+-]?\d+", raw):
         return int(raw)
-    except ValueError:
-        pass
-    try:
+    if re.fullmatch(r"[+-]?\d+\.\d+", raw):
         return float(raw)
-    except ValueError:
-        return raw
+    return raw
 
 
 def parse_settings(lines: list[str]) -> dict:
