@@ -49,3 +49,17 @@ def parse_settings(lines: list[str]) -> dict:
                 result[key] = _parse_value(value)
                 current_list = None
     return result
+
+def merge_by_key(rows: list[dict], extra: dict, key: str = "id") -> list[dict]:
+    result = []
+    for row in rows:
+        if key in row and row[key] in extra:
+            merged = {**extra[row[key]], **row}
+        else:
+            merged = dict(row)
+        result.append(merged)
+    return result
+
+
+def records_to_json(records: list[dict]) -> str:
+    return json.dumps(records, ensure_ascii=False, indent=2, sort_keys=True)

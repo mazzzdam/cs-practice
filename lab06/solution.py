@@ -25,3 +25,6 @@ def human_size(n_bytes: int) -> str:
         if size < 1024 or unit == "ТБ":
             return f"{size:.1f} {unit}"
         size /= 1024
+
+p = ["docs/report.PDF", "notes.txt", "docs/img/logo.png", "Makefile"]   
+print(count_by_extension(p))
